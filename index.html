@@ -48,6 +48,26 @@
               <label>วันที่</label>
               <input type="date" id="hd-date" />
             </div>
+
+            <div class="info-item">
+              <label>ดีกรีสุรา</label>
+              <select id="hd-degree">
+                <option value="">-- เลือกดีกรีสุรา --</option>
+                <option>28°</option>
+                <option>30°</option>
+                <option>35°</option>
+                <option>40°</option>
+              </select>
+            </div>
+            <div class="info-item">
+              <label>ชนิดขวด</label>
+              <select id="hd-bottle-type">
+                <option value="">-- เลือกชนิดขวด --</option>
+                <option>330</option>
+                <option>625</option>
+              </select>
+            </div>
+
             <div class="info-item full">
               <label>ชนิดสุรา</label>
               <select id="hd-liquor">
@@ -250,7 +270,7 @@
 
           <div class="f-row three">
             <div class="f-field">
-              <label>อ่าง</label>
+              <label>Tempอ่าง</label>
               <input
                 type="number"
                 id="f-tank"
@@ -261,7 +281,7 @@
               />
             </div>
             <div class="f-field">
-              <label>ท่อ</label>
+              <label>Tempท่อ</label>
               <input
                 type="number"
                 id="f-pipe"
@@ -272,7 +292,7 @@
               />
             </div>
             <div class="f-field">
-              <label>หัวฉีด</label>
+              <label>Tempหัวฉีด</label>
               <input
                 type="number"
                 id="f-air"
@@ -573,6 +593,8 @@
         const entry = {
           date: document.getElementById("hd-date").value,
           line: document.getElementById("hd-line").value,
+          degree: document.getElementById("hd-degree").value,
+          bottle: document.getElementById("hd-bottle-type").value,
           liquor: document.getElementById("hd-liquor").value,
           ka: selectedKa,
           startTime: document.getElementById("hd-start").value,
@@ -599,6 +621,7 @@
 
         // reset fields
         document.getElementById("f-note").value = "";
+        document.getElementById("f-package").value = "";
 
         // เลื่อนเวลา +1 ชม.
         const [hh] = entry.time.split(":").map(Number);
