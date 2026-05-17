@@ -477,7 +477,7 @@ table.log-tbl tr:hover td {
   }
 
   .f-row.three {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .kpi-row {
