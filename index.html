@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <title>บันทึกการทำงานของเครื่องป้อนกล่องและขึ้นรูปกล่อง</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('form', this)">
+        📋 กรอกข้อมูล
+      </button>
+      <button class="tab-btn" onclick="switchTab('log', this)">
+        📜 ประวัติวันนี้
+      </button>
+    </nav>
+    <!-- ============================= FORM TAB ============================= -->
+    <div id="tab-form" class="page active">
+      <div class="wrap">
+        <!-- Header doc info -->
+        <div class="header-doc">
+          <div class="doc-title">
+            <h2>บริษัท ธนภักดี จำกัด</h2>
+            <p>
+              บันทึกการทำงานของเครื่องป้อนกล่องและขึ้นรูปกล่อง (Carton Erector)
+            </p>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-item">
+              <label>สายบรรจุที่</label>
+              <select id="hd-line">
+                <option value="1">สาย 1</option>
+                <option value="2">สาย 2</option>
+                <option value="3">สาย 3</option>
+              </select>
+            </div>
+            <div class="info-item">
+              <label>วันที่</label>
+              <input type="date" id="hd-date" />
+            </div>
+
+            <div class="info-item">
+              <label>ดีกรีสุรา</label>
+              <select id="hd-degree">
+                <option value="">-- เลือกดีกรีสุรา --</option>
+                <option>28°</option>
+                <option>30°</option>
+                <option>35°</option>
+                <option>40°</option>
+              </select>
+            </div>
+            <div class="info-item">
+              <label>ขนาดขวด</label>
+              <select id="hd-bottle-type">
+                <option value="">-- เลือกขนาดขวด --</option>
+                <option>330</option>
+                <option>500</option>
+                <option>625</option>
+              </select>
+            </div>
+
+            <div class="info-item full">
+              <label>ชนิดสุรา</label>
+              <select id="hd-liquor">
+                <option value="">-- เลือกชนิดสุรา --</option>
+                <option>รวงข้าว</option>
+                <option>นิยมไทย</option>
+                <option>แม่วังวารี</option>
+                <option>เชี่ยงชุน</option>
+              </select>
+            </div>
+            <div class="info-item">
+              <label>เวลาเริ่มเดินเครื่อง</label>
+              <select
+                id="hd-start"
+                style="
+                  font-family: &quot;IBM Plex Mono&quot;, monospace;
+                  font-size: 18px;
+                  font-weight: 700;
+                  text-align: center;
+                "
+              >
+                <option value="">-- เลือกเวลา --</option>
+                <option value="01:00">01:00</option>
+                <option value="02:00">02:00</option>
+                <option value="03:00">03:00</option>
+                <option value="04:00">04:00</option>
+                <option value="05:00">05:00</option>
+                <option value="06:00">06:00</option>
+                <option value="07:00">07:00</option>
+                <option value="08:00" selected>08:00</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
+                <option value="19:00">19:00</option>
+                <option value="20:00">20:00</option>
+                <option value="21:00">21:00</option>
+                <option value="22:00">22:00</option>
+                <option value="23:00">23:00</option>
+                <option value="24:00">24:00</option>
+              </select>
+            </div>
+            <div class="info-item">
+              <label>เวลาหยุดเดินเครื่อง</label>
+              <select
+                id="hd-stop"
+                style="
+                  font-family: &quot;IBM Plex Mono&quot;, monospace;
+                  font-size: 18px;
+                  font-weight: 700;
+                  text-align: center;
+                "
+              >
+                <option value="">-- เลือกเวลา --</option>
+                <option value="01:00">01:00</option>
+                <option value="02:00">02:00</option>
+                <option value="03:00">03:00</option>
+                <option value="04:00">04:00</option>
+                <option value="05:00">05:00</option>
+                <option value="06:00">06:00</option>
+                <option value="07:00">07:00</option>
+                <option value="08:00">08:00</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
+                <option value="19:00">19:00</option>
+                <option value="20:00">20:00</option>
+                <option value="21:00">21:00</option>
+                <option value="22:00">22:00</option>
+                <option value="23:00">23:00</option>
+                <option value="24:00" selected>24:00</option>
+              </select>
+            </div>
+            <div class="info-item full">
+              <label>จำนวนกะ / วัน</label>
+              <div class="ka-select">
+                <div class="ka-chip" onclick="selectKa(this, '1')">1 กะ</div>
+                <div class="ka-chip on" onclick="selectKa(this, '2')">2 กะ</div>
+                <div class="ka-chip" onclick="selectKa(this, '3')">3 กะ</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== PREVIOUS HOUR PEEK ===== -->
+        <div class="card">
+          <div class="card-head">👁️ ข้อมูลชั่วโมงก่อนหน้า</div>
+          <div class="card-body">
+            <div id="prev-block">
+              <div class="no-prev">
+                ยังไม่มีข้อมูลก่อนหน้า (ชั่วโมงนี้เป็นชั่วโมงแรก)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== CURRENT HOUR FORM ===== -->
+        <div class="current-form">
+          <div class="cur-label">
+            ⏱️ กรอกข้อมูลชั่วโมงนี้ &nbsp;<span
+              id="cur-time-badge"
+              style="
+                font-size: 14px;
+                color: var(--amber);
+                font-family: &quot;IBM Plex Mono&quot;, monospace;
+                font-weight: 700;
+              "
+            ></span>
+          </div>
+
+          <div class="f-row one">
+            <div class="f-field">
+              <label>เวลา</label>
+              <select
+                id="f-time"
+                style="
+                  font-family: &quot;IBM Plex Mono&quot;, monospace;
+                  font-size: 18px;
+                  font-weight: 700;
+                  text-align: center;
+                "
+              >
+                <option value="">-- เลือกเวลา --</option>
+                <option value="01:00">01:00</option>
+                <option value="02:00">02:00</option>
+                <option value="03:00">03:00</option>
+                <option value="04:00">04:00</option>
+                <option value="05:00">05:00</option>
+                <option value="06:00">06:00</option>
+                <option value="07:00">07:00</option>
+                <option value="08:00">08:00</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
+                <option value="19:00">19:00</option>
+                <option value="20:00">20:00</option>
+                <option value="21:00">21:00</option>
+                <option value="22:00">22:00</option>
+                <option value="23:00">23:00</option>
+                <option value="24:00">24:00</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="f-row three">
+            <div class="f-field">
+              <label>แรงดันลม</label>
+              <input
+                type="number"
+                id="f-pressure1"
+                placeholder="5"
+                min="0"
+                max="15"
+                step="0.1"
+              />
+            </div>
+            <div class="f-field">
+              <label>แรงดันลมที่หัวจับ</label>
+              <input
+                type="number"
+                id="f-pressure2"
+                placeholder="5"
+                min="0"
+                max="15"
+                step="0.1"
+              />
+            </div>
+            <div class="f-field">
+              <label>หัวจับกล่อง</label>
+              <input
+                type="number"
+                id="f-chuck"
+                placeholder="5"
+                min="0"
+                max="15"
+                step="0.1"
+              />
+            </div>
+          </div>
+
+          <div class="f-row three">
+            <div class="f-field">
+              <label>Tempอ่าง</label>
+              <input
+                type="number"
+                id="f-tank"
+                placeholder="140"
+                min="0"
+                max="15"
+                step="0.1"
+              />
+            </div>
+            <div class="f-field">
+              <label>Tempท่อ</label>
+              <input
+                type="number"
+                id="f-pipe"
+                placeholder="140"
+                min="0"
+                max="15"
+                step="0.1"
+              />
+            </div>
+            <div class="f-field">
+              <label>Tempหัวฉีด</label>
+              <input
+                type="number"
+                id="f-air"
+                placeholder="140"
+                min="0"
+                max="15"
+                step="0.1"
+              />
+            </div>
+          </div>
+
+          <div class="f-row one">
+            <div class="f-field">
+              <label>จำนวนกล่องที่ป้อน</label>
+              <input type="number" id="f-package" placeholder="0" min="0" />
+            </div>
+          </div>
+
+          <div class="f-row one">
+            <div class="f-field">
+              <label> บันทึกข้อมูลที่เกี่ยวข้อง</label>
+              <textarea id="f-note" style="height: 54px"></textarea>
+            </div>
+          </div>
+
+          <button class="save-btn" onclick="saveEntry()">
+            ✅ บันทึกข้อมูลชั่วโมงนี้
+          </button>
+        </div>
+
+        <!-- Signature area hint -->
+        <div class="card">
+          <div class="card-head">✍️ ลงชื่อ</div>
+          <div class="card-body">
+            <div class="f-row">
+              <div class="f-field">
+                <label>พนักงานควบคุมเครื่องจักร</label>
+                <input type="text" id="sig-operator" placeholder="ชื่อ-สกุล" />
+              </div>
+              <div class="f-field">
+                <label>ผู้ตรวจสอบ</label>
+                <input type="text" id="sig-checker" placeholder="ชื่อ-สกุล" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SHEETS SETUP -->
+        <div class="card" id="sheets-setup-card">
+          <div
+            class="card-head"
+            onclick="toggleSetup()"
+            style="
+              cursor: pointer;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            ⚙️ ตั้งค่า Google Sheets
+            <span
+              id="sheets-status-badge"
+              style="
+                font-size: 11px;
+                padding: 3px 10px;
+                border-radius: 20px;
+                background: rgba(255, 255, 255, 0.2);
+              "
+              >ยังไม่ได้ตั้งค่า</span
+            >
+          </div>
+          <div class="card-body" id="sheets-setup-body" style="display: none">
+            <p
+              style="
+                font-size: 12px;
+                color: var(--muted);
+                margin-bottom: 10px;
+                line-height: 1.7;
+              "
+            >
+              วาง URL ของ Google Apps Script Web App ที่ได้จากการ Deploy<br />
+              <span style="color: var(--accent); font-weight: 600"
+                >ทำครั้งเดียว — บันทึกไว้ในเครื่องถาวร</span
+              >
+            </p>
+            <div class="f-field" style="margin-bottom: 10px">
+              <label>Apps Script Web App URL</label>
+              <input
+                type="url"
+                id="sheet-url-input"
+                placeholder="https://script.google.com/macros/s/AKfycbx7Fl-FYirzeVHfbdPPC2qea97P4S47kehsYPIU2jTCulXXdVvsUM3dDV9ZQi6Lc3BGmg/exec"
+                style="font-size: 12px"
+              />
+            </div>
+            <div style="display: flex; gap: 8px">
+              <button
+                onclick="saveSheetUrl()"
+                style="
+                  flex: 1;
+                  padding: 10px;
+                  background: var(--accent);
+                  color: #fff;
+                  border: none;
+                  border-radius: 8px;
+                  font-family: &quot;Sarabun&quot;, sans-serif;
+                  font-size: 14px;
+                  font-weight: 700;
+                  cursor: pointer;
+                "
+              >
+                💾 บันทึก URL
+              </button>
+              <button
+                onclick="clearSheetUrl()"
+                style="
+                  padding: 10px 14px;
+                  background: #fee2e2;
+                  color: var(--red);
+                  border: none;
+                  border-radius: 8px;
+                  font-family: &quot;Sarabun&quot;, sans-serif;
+                  font-size: 13px;
+                  font-weight: 600;
+                  cursor: pointer;
+                "
+              >
+                ลบ
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================= LOG TAB ============================= -->
+    <div id="tab-log" class="page">
+      <div class="wrap">
+        <div class="card">
+          <div class="card-head">📜 บันทึกรายชั่วโมง — วันนี้</div>
+          <div class="log-scroll">
+            <table class="log-tbl">
+              <thead>
+                <tr>
+                  <th>เวลา</th>
+                  <th>แรงดัน<br />(Bar)</th>
+                  <th>แรงดันลมที่หัวจับ<br />(Bar)</th>
+                  <th>หัวจับกล่อง</th>
+                  <th>จำนวนกล่องที่ป้อน</th>
+                  <th>บันทึกข้อมูลที่เกี่ยวข้อง</th>
+                </tr>
+              </thead>
+              <tbody id="log-tbody">
+                <tr>
+                  <td
+                    colspan="8"
+                    style="
+                      color: var(--muted);
+                      padding: 20px;
+                      font-style: italic;
+                    "
+                  >
+                    ยังไม่มีข้อมูล — กรอกข้อมูลชั่วโมงแรกที่แท็บ "กรอกข้อมูล"
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">✅ บันทึกสำเร็จ!</div>
+
+    <script>
+      // ============================================================
+      //  STATE
+      // ============================================================
+      let entries = JSON.parse(localStorage.getItem("dp_entries") || "[]");
+      let selectedKa = "2";
+
+      // INIT
+      (function init() {
+        const today = new Date();
+        document.getElementById("hd-date").value = today
+          .toISOString()
+          .split("T")[0];
+
+        // set current hour in select
+        const hh = String(today.getHours()).padStart(2, "0");
+        document.getElementById("f-time").value = `${hh}:00`;
+        document.getElementById("cur-time-badge").textContent = `${hh}:00`;
+
+        fetchPrevHour();
+        updateSheetBadge();
+        const savedUrl = localStorage.getItem("sheet_url");
+        if (savedUrl)
+          document.getElementById("sheet-url-input").value = savedUrl;
+
+        // live clock on badge
+        setInterval(() => {
+          const n = new Date();
+          document.getElementById("cur-time-badge").textContent =
+            String(n.getHours()).padStart(2, "0") + ":00";
+        }, 60000);
+      })();
+
+      // ============================================================
+      //  TABS
+      // ============================================================
+      function switchTab(name, btn) {
+        document
+          .querySelectorAll(".page")
+          .forEach((p) => p.classList.remove("active"));
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((b) => b.classList.remove("active"));
+        document.getElementById("tab-" + name).classList.add("active");
+        btn.classList.add("active");
+        if (name === "log") {
+          fetchTodayLog();
+        }
+      }
+      // ============================================================
+      //  HEADER SELECTORS
+      // ============================================================
+      function selectKa(el, val) {
+        document
+          .querySelectorAll(".ka-chip")
+          .forEach((c) => c.classList.remove("on"));
+        el.classList.add("on");
+        selectedKa = val;
+      }
+      // ============================================================
+      //  PREVIOUS HOUR DISPLAY
+      // ============================================================
+      // ============================================================
+      //  PREVIOUS HOUR — ดึงจาก Sheets ก่อน fallback localStorage
+      // ============================================================
+      function renderPrev(serverData) {
+        const block = document.getElementById("prev-block");
+
+        // ถ้ามีข้อมูลจาก server ให้ใช้ก่อน
+        const prev =
+          serverData ||
+          (entries.length > 0 ? entries[entries.length - 1] : null);
+
+        if (!prev) {
+          block.innerHTML =
+            '<div class="no-prev">ยังไม่มีข้อมูลก่อนหน้า (ชั่วโมงนี้เป็นชั่วโมงแรก)</div>';
+          return;
+        }
+        // normalize field names
+        const btype = prev.bottleType || prev.bottleInfo || "—";
+        block.innerHTML = `
+        <div class="prev-row">
+          <div class="prev-row-label">📌 ข้อมูลเวลา ${prev.time} น. ${serverData ? '<span style="color:#166534;font-size:10px;">● จาก Sheets</span>' : '<span style="color:#b45309;font-size:10px;">● จากเครื่อง</span>'}</div>
+          <div class="prev-row-data">
+            <div class="prev-chip">แรงดัน <span>${prev.p1} Bar</span></div>
+            <div class="prev-chip">แรงดันลมที่หัวจับ <span>${prev.p2} Bar</span></div>
+            <div class="prev-chip">หัวจับกล่อง <span>${Number(prev.chunk || 0).toLocaleString()}</span></div>
+            <div class="prev-chip">จำนวนกล่องที่ป้อน <span>${Number(prev.package || 0).toLocaleString()}</span></div>
+            ${prev.note ? `<div class="prev-chip">บันทึก <span>${prev.note}</span></div>` : ""}
+          </div>
+        </div>`;
+      }
+
+      function fetchPrevHour() {
+        const url = localStorage.getItem("sheet_url");
+        const date = document.getElementById("hd-date").value;
+        if (!url || !date) {
+          renderPrev();
+          return;
+        }
+
+        const getUrl = url + "?action=prevLog";
+        fetch(getUrl)
+          .then((r) => r.json())
+          .then((res) => renderPrev(res.data))
+          .catch(() => renderPrev());
+      }
+
+      function fetchTodayLog() {
+        const url = localStorage.getItem("sheet_url");
+        const date = document.getElementById("hd-date").value;
+
+        if (!url || !date) return renderLog([]);
+
+        fetch(url + "?action=dailyLog&date=" + date)
+          .then((r) => r.json())
+          .then((res) => renderLog(res.data))
+          .catch(() => renderLog([]));
+      }
+      // ============================================================
+      //  SAVE ENTRY
+      // ============================================================
+      function saveEntry() {
+        const entry = {
+          date: document.getElementById("hd-date").value,
+          line: document.getElementById("hd-line").value,
+          degree: document.getElementById("hd-degree").value,
+          bottle: document.getElementById("hd-bottle-type").value,
+          liquor: document.getElementById("hd-liquor").value,
+          ka: selectedKa,
+          startTime: document.getElementById("hd-start").value,
+          stopTime: document.getElementById("hd-stop").value,
+          time: document.getElementById("f-time").value || "--:--",
+          p1: document.getElementById("f-pressure1").value || "5",
+          p2: document.getElementById("f-pressure2").value || "5",
+          chuck: document.getElementById("f-chuck").value || "5",
+          package: document.getElementById("f-package").value || "0",
+          tank: document.getElementById("f-tank").value || "140",
+          pipe: document.getElementById("f-tank").value || "140",
+          air: document.getElementById("f-tank").value || "140",
+          note: document.getElementById("f-note").value.trim(),
+          operator: document.getElementById("sig-operator").value.trim(),
+          checker: document.getElementById("sig-checker").value.trim(),
+          ts: Date.now(),
+        };
+
+        console.log(JSON.stringify(entry));
+
+        // บันทึกใน localStorage เสมอ (offline backup)
+        // entries.push(entry);
+        // localStorage.setItem("dp_entries", JSON.stringify(entries));
+
+        // reset fields
+        document.getElementById("f-note").value = "";
+        document.getElementById("f-package").value = "";
+
+        // เลื่อนเวลา +1 ชม.
+        const [hh] = entry.time.split(":").map(Number);
+        document.getElementById("f-time").value =
+          String((hh + 1) % 24).padStart(2, "0") + ":00";
+
+        // ส่งไป Google Sheets
+        const url = localStorage.getItem("sheet_url");
+        if (!url) {
+          showToast("✅ บันทึกในเครื่องสำเร็จ (ยังไม่ได้ตั้งค่า Sheets)");
+          renderPrev();
+          return;
+        }
+
+        showToast("📤 กำลังส่งข้อมูล...");
+        fetch(url, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(entry),
+        })
+          .then(() => {
+            showToast(`✅ บันทึก ${entry.time} น. เข้า Sheets สำเร็จ!`);
+            // ดึงข้อมูลชั่วโมงใหม่จาก Sheets
+            setTimeout(fetchPrevHour, 1500);
+          })
+          .catch(() => {
+            showToast("⚠️ ส่งไม่สำเร็จ — บันทึกในเครื่องไว้แล้ว");
+            renderPrev();
+          });
+      }
+
+      // ============================================================
+      //  GOOGLE SHEETS URL SETUP
+      // ============================================================
+      function toggleSetup() {
+        const body = document.getElementById("sheets-setup-body");
+        body.style.display = body.style.display === "none" ? "block" : "none";
+      }
+      function saveSheetUrl() {
+        const url = document.getElementById("sheet-url-input").value.trim();
+        if (!url.startsWith("https://script.google.com")) {
+          showToast(
+            "⚠️ URL ไม่ถูกต้อง — ต้องเริ่มด้วย https://script.google.com",
+          );
+          return;
+        }
+        localStorage.setItem("sheet_url", url);
+        updateSheetBadge();
+        document.getElementById("sheets-setup-body").style.display = "none";
+        showToast("✅ บันทึก URL สำเร็จ!");
+      }
+      function clearSheetUrl() {
+        localStorage.removeItem("sheet_url");
+        document.getElementById("sheet-url-input").value = "";
+        updateSheetBadge();
+        showToast("🗑️ ลบ URL แล้ว");
+      }
+      function updateSheetBadge() {
+        const badge = document.getElementById("sheets-status-badge");
+        const url = localStorage.getItem("sheet_url");
+        if (url) {
+          badge.textContent = "✅ เชื่อมต่อแล้ว";
+          badge.style.background = "rgba(0,200,100,.3)";
+        } else {
+          badge.textContent = "⚠️ ยังไม่ได้ตั้งค่า";
+          badge.style.background = "rgba(255,200,0,.3)";
+        }
+      }
+
+      // ============================================================
+      //  LOG TABLE
+      // ============================================================
+      function renderLog(data = []) {
+        const tbody = document.getElementById("log-tbody");
+
+        if (!data.length) {
+          tbody.innerHTML =
+            '<tr><td colspan="8" style="color:var(--muted);padding:20px;font-style:italic;">ยังไม่มีข้อมูล</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = "";
+
+        data.forEach((e, i) => {
+          const isLast = i === data.length - 1;
+          const bg = isLast ? "background:#fff8e6;" : "";
+
+          tbody.innerHTML += `
+            <tr style="${bg}">
+              <td class="mono">${e.time}</td>
+              <td class="mono">${e.p1}</td>
+              <td class="mono">${e.p2}</td>
+              <td style="mono">${e.chuck}</td>
+              <td style="mono">${e.package}</td>
+              <td class="mono">${e.note}</td>
+            </tr>
+          `;
+        });
+      }
+
+      // ============================================================
+      //  TOAST
+      // ============================================================
+      function showToast(msg) {
+        const t = document.getElementById("toast");
+        t.textContent = msg;
+        t.style.display = "block";
+        setTimeout(() => {
+          t.style.display = "none";
+        }, 2200);
+      }
+    </script>
+  </body>
+</html>
